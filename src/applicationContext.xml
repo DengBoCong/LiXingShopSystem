@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/lixing?useSSL=false"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </bean>
+
+    <!--session factory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/lixing</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+                <prop key="hibernate.c3p0.minPoolSize">5</prop>
+                <prop key="hibernate.c3p0.maxPoolSize">5000</prop>
+                <prop key="hibernate.c3p0.max_size">500</prop>
+                <prop key="hibernate.c3p0.timeout">30</prop>
+                <prop key="hibernate.c3p0.idle_test_period">30</prop>
+                <prop key="hibernate.c3p0.acquire_increment">2</prop>
+                <prop key="hibernate.c3p0.max_statements">10</prop>
+                <prop key="current_session_context_class">thread</prop>
+            </props>
+        </property>
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:com/power/dbc/Model/LAdminEntity.hbm.xml</value>
+            </list>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>com.power.dbc.Model.LAdminEntity</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <!--json转换器-->
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter" />
+            </list>
+        </property>
+    </bean>
+
+    <!--配置Controller中操作JSON返回格式-->
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name = "supportedMediaTypes">
+            <list>
+                <bean class="org.springframework.http.MediaType">
+                    <constructor-arg index="0" value="text"/>
+                    <constructor-arg index="1" value="plain"/>
+                    <constructor-arg index="2" value="UTF-8"/>
+                </bean>
+                <bean class="org.springframework.http.MediaType">
+                    <constructor-arg index="0" value="*"/>
+                    <constructor-arg index="1" value="*"/>
+                    <constructor-arg index="2" value="UTF-8"/>
+                </bean>
+                <bean class="org.springframework.http.MediaType">
+                    <constructor-arg index="0" value="text"/>
+                    <constructor-arg index="1" value="*"/>
+                    <constructor-arg index="2" value="UTF-8"/>
+                </bean>
+                <bean class="org.springframework.http.MediaType">
+                    <constructor-arg index="0" value="application"/>
+                    <constructor-arg index="1" value="json"/>
+                    <constructor-arg index="2" value="UTF-8"/>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+    <!--用于扫描该包，启用Service层注解-->
+    <context:component-scan base-package="com.power.dbc.Service"/>
+    <!--用于扫描该包，启用Dao层注解-->
+    <context:component-scan base-package="com.power.dbc.Dao"/>
+</beans>
