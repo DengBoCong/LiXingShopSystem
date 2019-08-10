@@ -11,7 +11,7 @@
 <html lang="en">
 
 <head>
-    <title>Datta Able - Signin</title>
+    <title>丽星平台 - 重置密码</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -22,9 +22,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="CodedThemes" />
+    <meta name="description" content="丽星平台，在线家具市场销售平台"/>
+    <meta name="keywords" content="丽星平台, 家具, 市场, 线上商城"/>
+    <meta name="author" content="DBC" />
 
     <!-- Favicon icon -->
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">

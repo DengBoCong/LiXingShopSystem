@@ -29,8 +29,8 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public boolean deleteAdmin(LAdminEntity lAdminEntity) {
-        return adminDao.deleteAdmin(lAdminEntity);
+    public boolean deleteAdmin(int id) {
+        return adminDao.deleteAdmin(id);
     }
 
     @Override
@@ -41,6 +41,16 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<LAdminEntity> list() {
         return adminDao.list();
+    }
+
+    @Override
+    public boolean updateAdmin(LAdminEntity lAdminEntity) {
+        return adminDao.updateAdmin(lAdminEntity);
+    }
+
+    @Override
+    public LAdminEntity listById(int id) {
+        return adminDao.listById(id);
     }
 
     public void setAdminDao(AdminDao adminDao) {

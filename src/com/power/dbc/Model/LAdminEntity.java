@@ -7,7 +7,7 @@ import java.util.Objects;
  * @program: LiXingShopSystem
  * @description:
  * @author: DBC
- * @create: 2019-08-07 16:25
+ * @create: 2019-08-09 20:42
  **/
 @Entity
 @Table(name = "l_admin", schema = "lixing", catalog = "")

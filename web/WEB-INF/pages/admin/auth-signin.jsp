@@ -11,7 +11,7 @@
 <html lang="en">
 
 <head>
-    <title>Datta Able - Signin</title>
+    <title>丽星平台 - 管理登录</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -22,20 +22,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content=""/>
-    <meta name="keywords" content=""/>
-    <meta name="author" content="CodedThemes" />
+    <meta name="description" content="丽星平台，在线家具市场销售平台"/>
+    <meta name="keywords" content="丽星平台, 家具, 市场, 线上商城"/>
+    <meta name="author" content="DBC" />
 
     <!-- Favicon icon -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="../admin/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../admin/plugins/bootstrap/css/bootstrap.min.css">
     <!-- fontawesome icon -->
-    <link rel="stylesheet" href="fonts/fontawesome/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="plugins/ladda/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../admin/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../admin/plugins/ladda/css/ladda-themeless.min.css">
     <!-- animation css -->
-    <link rel="stylesheet" href="plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="../admin/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../admin/css/style.css">
 
 
 
@@ -53,7 +53,7 @@
         <div class="card">
             <div class="row no-gutters">
                 <div class="col-md-4 col-lg-6 d-none d-md-flex d-lg-flex theme-bg align-items-center justify-content-center">
-                    <img src="img/user/lock.png" alt="lock images" class="img-fluid">
+                    <img src="../admin/img/user/lock.png" alt="lock images" class="img-fluid">
                 </div>
                 <div class="col-md-8 col-lg-6">
                     <div class="card-body text-center">
@@ -84,14 +84,14 @@
 </div>
 
 <!-- Required Js -->
-<script src="js/jquery-2.1.1.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/vendor-all.min.js"></script><script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/pcoded.min.js"></script>
-<script src="plugins/ladda/js/spin.min.js"></script>
-<script src="plugins/ladda/js/ladda.min.js"></script>
-<script src="plugins/ladda/js/ladda.jquery.min.js"></script>
-<script src="plugins/sweetalert/js/sweetalert.min.js"></script>
+<script src="../admin/js/jquery-2.1.1.js"></script>
+<script src="../admin/js/bootstrap.min.js"></script>
+<script src="../admin/js/vendor-all.min.js"></script><script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../admin/js/pcoded.min.js"></script>
+<script src="../admin/plugins/ladda/js/spin.min.js"></script>
+<script src="../admin/plugins/ladda/js/ladda.min.js"></script>
+<script src="../admin/plugins/ladda/js/ladda.jquery.min.js"></script>
+<script src="../admin/plugins/sweetalert/js/sweetalert.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         sessionStorage.setItem("adminInfo", "");
@@ -119,7 +119,7 @@
             }else{
                 $.ajax({
                     method: "POST",
-                    url: "/LoginCheck",
+                    url: "/Admin/LoginCheck",
                     dataType: "json",
                     data: {'mobile':$('#account').val(),'password':$('#password').val()},/*$("form").serialise()*/
                     success: function (data) {
@@ -132,7 +132,7 @@
                             });
                         }else{
                             sessionStorage.setItem("enterpriseInfo", JSON.stringify(data));
-                            window.location.href = "EnterpriseInfo/Summary";
+                            window.location.href = "/Admin/EnterpriseInfo/Summary";
                         }
                         login.ladda('stop');
                     },

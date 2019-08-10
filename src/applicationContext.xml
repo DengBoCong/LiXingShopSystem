@@ -30,11 +30,28 @@
         <property name="mappingLocations">
             <list>
                 <value>classpath:com/power/dbc/Model/LAdminEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LOrderEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LAdminEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LAdminEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LAdminEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LAdminEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LUserEntity.hbm.xml</value>
+                <value>classpath:com/power/dbc/Model/LGoodsEntity.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
                 <value>com.power.dbc.Model.LAdminEntity</value>
+                <value>com.power.dbc.Model.LOrderEntity</value>
+                <value>com.power.dbc.Model.LUserEntity</value>
+                <value>com.power.dbc.Model.LGoodsEntity</value>
             </list>
         </property>
     </bean>

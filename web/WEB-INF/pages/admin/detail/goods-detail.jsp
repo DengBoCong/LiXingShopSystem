@@ -1,12 +1,20 @@
 <%--
   Created by IntelliJ IDEA.
   User: Power
-  Date: 2019/8/8
-  Time: 16:36
+  Date: 2019/8/9
+  Time: 23:13
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fm" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" +
+            request.getServerName() + ":" +
+            request.getServerPort() + path;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -364,9 +372,9 @@
                                                 <h6 class="m-t-50 m-b-0">近一周订单</h6>
                                             </div>
                                             <div class="col text-right">
-                                                <h3 class="text-c-green f-w-300">589</h3>
+                                                <h3 class="text-c-green f-w-300">${Top3Count.orderCount}</h3>
                                                 <span class="text-muted d-block">新增订单</span>
-                                                <span class="badge theme-bg text-white m-t-20">1434</span>
+                                                <span class="badge theme-bg text-white m-t-20">${Top3Count.oCount}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -384,9 +392,9 @@
                                                 <h6 class="m-t-50 m-b-0">近一周销售额</h6>
                                             </div>
                                             <div class="col text-right">
-                                                <h3 class="text-c-blue f-w-300">8,589</h3>
+                                                <h3 class="text-c-blue f-w-300">${Top3Count.sellCount}</h3>
                                                 <span class="text-muted d-block">销售额</span>
-                                                <span class="badge theme-bg text-white m-t-20">666</span>
+                                                <span class="badge theme-bg text-white m-t-20">${Top3Count.sCount}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -404,9 +412,9 @@
                                                 <h6 class="m-t-50 m-b-0">上周新增</h6>
                                             </div>
                                             <div class="col text-right">
-                                                <h3 class="text-c-yellow f-w-300">6</h3>
+                                                <h3 class="text-c-yellow f-w-300">${Top3Count.userCount}</h3>
                                                 <span class="text-muted d-block">新增用户</span>
-                                                <span class="badge theme-bg text-white m-t-20">16</span>
+                                                <span class="badge theme-bg text-white m-t-20">${Top3Count.uCount}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -445,22 +453,22 @@
                                     <div class="card-block text-center">
                                         <h5 class="mb-3">用户成分情况</h5>
                                         <i class="fas fa-user-friends f-30 text-c-green"></i>
-                                        <h2 class="f-w-300 mt-3">共 1,285 人</h2>
+                                        <h2 class="f-w-300 mt-3">共 ${RightUserCount.accountCount} 人</h2>
                                         <span class="text-muted">成分占比显示</span>
                                         <div class="progress mt-4 m-b-40">
                                             <div class="progress-bar progress-c-theme" role="progressbar" style="width: 100%; height:7px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                         <div class="row card-active">
                                             <div class="col-md-4 col-6">
-                                                <h4>52%</h4>
+                                                <h4>${RightUserCount.userPercent}%</h4>
                                                 <span class="text-muted">经销商</span>
                                             </div>
                                             <div class="col-md-4 col-6">
-                                                <h4>80%</h4>
+                                                <h4>${RightUserCount.workerPercent}%</h4>
                                                 <span class="text-muted">工作人员</span>
                                             </div>
                                             <div class="col-md-4 col-12">
-                                                <h4>68%</h4>
+                                                <h4>${RightUserCount.factoryPercent}%</h4>
                                                 <span class="text-muted">厂家</span>
                                             </div>
                                         </div>
@@ -470,81 +478,61 @@
                             <!-- [ 用户成分情况 ] end -->
 
                             <!-- [ 最热卖商品前三排行 ] start -->
-                            <div class="col-md-12 col-xl-4">
-                                <div class="card card-social">
-                                    <div class="card-block border-bottom">
-                                        <div class="row align-items-center justify-content-center">
-                                            <div class="col-auto">
-                                                <i class="fas fa-box-open text-primary f-36"></i>
-                                            </div>
-                                            <div class="col text-right">
-                                                <h3>12,281(件)</h3>
-                                                <h5 class="text-c-green mb-0"><span class="text-muted">来自</span>  丽星家居商城</h5>
+                            <c:forEach items="${Top3GoodsList}" var="items">
+                                <div class="col-md-12 col-xl-4">
+                                    <div class="card card-social">
+                                        <div class="card-block border-bottom">
+                                            <div class="row align-items-center justify-content-center">
+                                                <div class="col-auto">
+                                                    <i class="fas fa-box-open text-primary f-36"></i>
+                                                </div>
+                                                <div class="col text-right">
+                                                    <h3>${items.salesCount}(件)</h3>
+                                                    <h5 class="text-c-green mb-0"><span class="text-muted">来自</span>  ${items.title}</h5>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="row align-items-center justify-content-center card-active">
-                                            <div class="col-12">
-                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">高档红木实体家居 </span><a href="#">查看详情</a></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-c-theme" role="progressbar" style="width:100%;height:6px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="card-block">
+                                            <div class="row align-items-center justify-content-center card-active">
+                                                <div class="col-12">
+                                                    <h6 class="text-center m-b-10"><span class="text-muted m-r-5">总访问次数:${items.accessCount} </span><a href="/Goods/${items.id}">查看详情</a></h6>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-c-theme" role="progressbar" style="width:100%;height:6px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="card card-social">
-                                    <div class="card-block border-bottom">
-                                        <div class="row align-items-center justify-content-center">
-                                            <div class="col-auto">
-                                                <i class="fas fa-box-open text-primary f-36"></i>
-                                            </div>
-                                            <div class="col text-right">
-                                                <h3>11,200(件)</h3>
-                                                <h5 class="text-c-purple mb-0"><span class="text-muted">来自</span>  丽星家居商城</h5>
+                            </c:forEach>
+
+                            <c:forEach begin="1" end="${3 - Top3GoodsList.size()}">
+                                <div class="col-md-12 col-xl-4">
+                                    <div class="card card-social">
+                                        <div class="card-block border-bottom">
+                                            <div class="row align-items-center justify-content-center">
+                                                <div class="col-auto">
+                                                    <i class="fas fa-box-open text-primary f-36"></i>
+                                                </div>
+                                                <div class="col text-right">
+                                                    <h3>虚位以待</h3>
+                                                    <h5 class="text-c-green mb-0"><span class="text-muted"> </span>   </h5>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="row align-items-center justify-content-center card-active">
-                                            <div class="col-12">
-                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">高档红木实体家居 </span><a href="#">查看详情</a></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-c-blue" role="progressbar" style="width:100%;height:6px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="card-block">
+                                            <div class="row align-items-center justify-content-center card-active">
+                                                <div class="col-12">
+                                                    <h6 class="text-center m-b-10"><span class="text-muted m-r-5">  </span><a href="#"> </a></h6>
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-c-theme" role="progressbar" style="width:100%;height:6px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6 col-xl-4">
-                                <div class="card card-social">
-                                    <div class="card-block border-bottom">
-                                        <div class="row align-items-center justify-content-center">
-                                            <div class="col-auto">
-                                                <i class="fas fa-box-open text-primary f-36"></i>
-                                            </div>
-                                            <div class="col text-right">
-                                                <h3>10,500(件)</h3>
-                                                <h5 class="text-c-blue mb-0"><span class="text-muted">来自</span>  丽星家居商城</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-block">
-                                        <div class="row align-items-center justify-content-center card-active">
-                                            <div class="col-12">
-                                                <h6 class="text-center m-b-10"><span class="text-muted m-r-5">高档红木实体家居 </span><a href="#">查看详情</a></h6>
-                                                <div class="progress">
-                                                    <div class="progress-bar progress-c-theme2" role="progressbar" style="width:100%;height:6px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </c:forEach>
                             <!-- [ 最热卖商品前三排行 ] end -->
 
 
@@ -580,48 +568,18 @@
                                                     <th>所属地</th>
                                                 </thead>
                                                 <tbody>
-                                                <tr>
-                                                    <td><img class="rounded-circle" style="width:40px;" src="img/user/avatar-1.jpg" alt="activity-user"></td>
-                                                    <td>
-                                                        <h6 class="mb-1">赣州市谭东经销商</h6>
-                                                        <p class="m-0">江西省南昌市青山湖区</p>
-                                                    </td>
-                                                    <td><span class="pie_1">34</span></td>
-                                                    <td><h6 class="m-0">326,134</h6></td>
-                                                    <td><h6 class="m-0">江西省，赣州市</h6></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td><img class="rounded-circle" style="width:40px;" src="img/user/avatar-2.jpg" alt="activity-user"></td>
-                                                    <td>
-                                                        <h6 class="mb-1">赣州市谭东经销商</h6>
-                                                        <p class="m-0">江西省南昌市青山湖区</p>
-                                                    </td>
-                                                    <td><span class="pie_1">34</span></td>
-                                                    <td><h6 class="m-0">326,134</h6></td>
-                                                    <td><h6 class="m-0">江西省，赣州市</h6></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <td><img class="rounded-circle" style="width:40px;" src="img/user/avatar-3.jpg" alt="activity-user"></td>
-                                                    <td>
-                                                        <h6 class="mb-1">赣州市谭东经销商</h6>
-                                                        <p class="m-0">江西省南昌市青山湖区</p>
-                                                    </td>
-                                                    <td><span class="pie_1">34</span></td>
-                                                    <td><h6 class="m-0">326,134</h6></td>
-                                                    <td><h6 class="m-0">江西省，赣州市</h6></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><img class="rounded-circle" style="width:40px;" src="img/user/avatar-1.jpg" alt="activity-user"></td>
-                                                    <td>
-                                                        <h6 class="mb-1">赣州市谭东经销商</h6>
-                                                        <p class="m-0">江西省南昌市青山湖区</p>
-                                                    </td>
-                                                    <td><span class="pie_1">34</span></td>
-                                                    <td><h6 class="m-0">326,134</h6></td>
-                                                    <td><h6 class="m-0">江西省，赣州市</h6></td>
-                                                </tr>
+                                                <c:forEach items="${Top10SellUserList}" var="item">
+                                                    <tr data-id="${item.id}">
+                                                        <td><img class="rounded-circle" style="width:40px;" src="${item.avatar}" alt="加载失败"></td>
+                                                        <td>
+                                                            <h6 class="mb-1">${item.username}</h6>
+                                                            <p class="m-0">${item.address}</p>
+                                                        </td>
+                                                        <td><span class="pie_1">${item.orderCount}</span></td>
+                                                        <td><h6 class="m-0"><fmt:formatNumber type="number" value="${item.sellCount/10000.00}" pattern="0.00" maxFractionDigits="2"/> </h6></td>
+                                                        <td><h6 class="m-0">${item.province}，${item.city}</h6></td>
+                                                    </tr>
+                                                </c:forEach>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -708,9 +666,10 @@
 <script src="../js/pages/dashboard-custom.js"></script>
 <script src="../js/pagesJs/index.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('#userImage').attr('src', JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].image);
         $('#userName').html(JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].username);
+
     });
 </script>
 </body>
