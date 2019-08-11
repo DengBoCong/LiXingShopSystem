@@ -6,7 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" +
+            request.getServerName() + ":" +
+            request.getServerPort() + path;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,13 +32,13 @@
     <meta name="author" content="DBC" />
 
     <!-- Favicon icon -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<%=basePath%>/admin/img/favicon.ico" type="image/x-icon">
     <!-- fontawesome icon -->
-    <link rel="stylesheet" href="fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
-    <link rel="stylesheet" href="plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/css/style.css">
 
 </head>
 
@@ -44,7 +49,7 @@
         <div class="card">
             <div class="row no-gutters">
                 <div class="col-md-4 col-lg-6 d-none d-md-flex d-lg-flex theme-bg align-items-center justify-content-center">
-                    <img src="img/user/lock.png" alt="lock images" class="img-fluid">
+                    <img src="<%=basePath%>/admin/img/user/lock.png" alt="lock images" class="img-fluid">
                 </div>
                 <div class="col-md-8 col-lg-6">
                     <div class="card-body text-center">
@@ -68,8 +73,8 @@
     </div>
 </div>
 <!-- Required Js -->
-<script src="js/vendor-all.min.js"></script>
-<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/admin/js/vendor-all.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>

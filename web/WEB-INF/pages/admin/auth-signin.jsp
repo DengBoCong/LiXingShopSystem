@@ -6,7 +6,12 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme() + "://" +
+            request.getServerName() + ":" +
+            request.getServerPort() + path;
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,15 +32,15 @@
     <meta name="author" content="DBC" />
 
     <!-- Favicon icon -->
-    <link rel="icon" href="../admin/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../admin/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" href="<%=basePath%>/admin/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/bootstrap/css/bootstrap.min.css">
     <!-- fontawesome icon -->
-    <link rel="stylesheet" href="../admin/fonts/fontawesome/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../admin/plugins/ladda/css/ladda-themeless.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/ladda/css/ladda-themeless.min.css">
     <!-- animation css -->
-    <link rel="stylesheet" href="../admin/plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/animation/css/animate.min.css">
     <!-- vendor css -->
-    <link rel="stylesheet" href="../admin/css/style.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/css/style.css">
 
 
 
@@ -53,7 +58,7 @@
         <div class="card">
             <div class="row no-gutters">
                 <div class="col-md-4 col-lg-6 d-none d-md-flex d-lg-flex theme-bg align-items-center justify-content-center">
-                    <img src="../admin/img/user/lock.png" alt="lock images" class="img-fluid">
+                    <img src="<%=basePath%>/admin/img/user/lock.png" alt="lock images" class="img-fluid">
                 </div>
                 <div class="col-md-8 col-lg-6">
                     <div class="card-body text-center">
@@ -73,7 +78,7 @@
                                     </div>
                                 </div>
                                 <button id="signin" class="ladda-button ladda-button-demo btn btn-primary shadow-2 mb-4">登录</button>
-                                <p class="mb-2 text-muted">忘记密码? <a href="/PasswordReset">重置</a></p>
+                                <p class="mb-2 text-muted">忘记密码? <a href="/Admin/PasswordReset">重置</a></p>
                             </div>
                         </div>
                     </div>
@@ -84,14 +89,15 @@
 </div>
 
 <!-- Required Js -->
-<script src="../admin/js/jquery-2.1.1.js"></script>
-<script src="../admin/js/bootstrap.min.js"></script>
-<script src="../admin/js/vendor-all.min.js"></script><script src="plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="../admin/js/pcoded.min.js"></script>
-<script src="../admin/plugins/ladda/js/spin.min.js"></script>
-<script src="../admin/plugins/ladda/js/ladda.min.js"></script>
-<script src="../admin/plugins/ladda/js/ladda.jquery.min.js"></script>
-<script src="../admin/plugins/sweetalert/js/sweetalert.min.js"></script>
+<script src="<%=basePath%>/admin/js/jquery-2.1.1.js"></script>
+<script src="<%=basePath%>/admin/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/admin/js/vendor-all.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/admin/js/pcoded.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/ladda/js/spin.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/ladda/js/ladda.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/ladda/js/ladda.jquery.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/sweetalert/js/sweetalert.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         sessionStorage.setItem("adminInfo", "");
@@ -128,11 +134,13 @@
                                 title: "登录失败!",
                                 text: "账号或密码错误!",
                                 icon: "error",
-                                confirmButtonText: "确定",
+                                button: {
+                                    text: "确定",
+                                },
                             });
                         }else{
                             sessionStorage.setItem("enterpriseInfo", JSON.stringify(data));
-                            window.location.href = "/Admin/EnterpriseInfo/Summary";
+                            window.location.href = "<%=basePath%>/Admin/EnterpriseInfo/Summary";
                         }
                         login.ladda('stop');
                     },
@@ -144,7 +152,9 @@
                             title: "出现错误!",
                             text: "网络参数出现错误!",
                             icon: "error",
-                            confirmButtonText: "确定",
+                            button: {
+                                text: "确定",
+                            },
                         });
                     }
                 });

@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Power
-  Date: 2019/8/10
-  Time: 11:46
+  Date: 2019/8/11
+  Time: 10:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,12 +15,11 @@
             request.getServerName() + ":" +
             request.getServerPort() + path;
 %>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>丽星平台 - 管理详细资料</title>
+    <title>Datta Able - Sample Page</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -31,9 +30,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="丽星平台，在线家具市场销售平台"/>
-    <meta name="keywords" content="丽星平台, 家具, 市场, 线上商城"/>
-    <meta name="author" content="DBC" />
+    <meta name="description" content="Datta Able Bootstrap admin template made using Bootstrap 4 and it has huge amount of ready made feature, UI components, .. which completely fulfills any dashboard needs." />
+    <meta name="keywords" content="admin templates, bootstrap admin templates, bootstrap 4, dashboard, dashboard templets, sass admin templets, html admin templates, responsive, bootstrap admin templates free download,premium bootstrap admin templates, datta able, datta able bootstrap admin template">
+    <meta name="author" content="Codedthemes" />
 
     <!-- Favicon icon -->
     <link rel="icon" href="<%=basePath%>/admin/img/favicon.ico" type="image/x-icon">
@@ -41,9 +40,16 @@
     <link rel="stylesheet" href="<%=basePath%>/admin/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
     <link rel="stylesheet" href="<%=basePath%>/admin/plugins/animation/css/animate.min.css">
-    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/ladda/css/ladda-themeless.min.css">
+    <!-- select2 css -->
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/select2/css/select2.min.css">
+    <!--lightbox css -->
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/lightbox2-master/css/lightbox.min.css">
+    <!-- data tables css -->
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/data-tables/css/datatables.min.css">
     <!-- vendor css -->
     <link rel="stylesheet" href="<%=basePath%>/admin/css/style.css">
+    <!-- Gallery css -->
+    <link rel="stylesheet" href="<%=basePath%>/admin/css/pages/gallery.css">
 
 </head>
 
@@ -73,28 +79,28 @@
                 <li class="nav-item pcoded-menu-caption">
                     <label>运营功能列表</label>
                 </li>
-                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item pcoded-hasmenu active pcoded-trigger">
+                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item pcoded-hasmenu">
                     <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">企业信息</span></a>
                     <ul class="pcoded-submenu">
-                        <li class=""><a id="summaryPage" href="<%=basePath%>/Admin/EnterpriseInfo/Summary" class="">经营概况</a></li>
-                        <li class="active"><a href="#" class="">详细资料</a></li>
-                        <li class=""><a href="control.html" class="">平台流量监控</a></li>
+                        <li class="active"><a href="#" class="">经营概况</a></li>
+                        <li class=""><a id="userDetailPage" href="" class="">详细资料</a></li>
+                        <li class=""><a href="pages/enterprise/control.html" class="">平台流量监控</a></li>
                     </ul>
                 </li>
-                <li data-username="Vertical Horizontal Box Layout RTL fixed static Collapse menu color icon dark" class="nav-item pcoded-hasmenu">
+                <li data-username="Vertical Horizontal Box Layout RTL fixed static Collapse menu color icon dark" class="nav-item pcoded-hasmenu active pcoded-trigger">
                     <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">商品</span></a>
                     <ul class="pcoded-submenu">
                         <li class="pcoded-hasmenu"><a href="#!" class="">商品智配</a>
                             <ul class="pcoded-submenu">
-                                <li class=""><a href="../commodity/adaptation/classify.html" class="">场景分类</a></li>
-                                <li class=""><a href="../commodity/adaptation/scene.html" class="">场景图上传</a></li>
-                                <li class=""><a href="../commodity/adaptation/commodity.html" class="">商品图上传</a></li>
+                                <li class=""><a href="adaptation/classify.html" class="">场景分类</a></li>
+                                <li class=""><a href="adaptation/scene.html" class="">场景图上传</a></li>
+                                <li class=""><a href="adaptation/commodity.html" class="">商品图上传</a></li>
                             </ul>
                         </li>
-                        <li class=""><a href="../commodity/index.html" class="">商品档案</a></li>
-                        <li class=""><a href="../commodity/classify.html" class="">商品分类</a></li>
-                        <li class=""><a href="../commodity/photo.html" class="">商品图片</a></li>
-                        <li class=""><a href="../commodity/video.html" class="">商品小视频</a></li>
+                        <li class="active"><a href="index.html" class="">商品档案</a></li>
+                        <li class=""><a href="classify.html" class="">商品分类</a></li>
+                        <li class=""><a href="photo.html" class="">商品图片</a></li>
+                        <li class=""><a href="video.html" class="">商品小视频</a></li>
                     </ul>
                 </li>
                 <li data-username="widget Statistic Data Table User card Chart" class="nav-item pcoded-hasmenu">
@@ -305,9 +311,9 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="${UserInfo.image}" class="img-radius" alt="用户头像">
-                            <span>${UserInfo.username}</span>
-                            <a href="/Admin/Login" class="dud-logout" title="退出">
+                            <img id="userImage" src="" class="img-radius" alt="用户头像">
+                            <span id="userName"></span>
+                            <a href="<%=basePath%>/Admin/Login" class="dud-logout" title="退出">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>
@@ -315,7 +321,7 @@
                             <li><a href="#!" class="dropdown-item"><i class="feather icon-settings"></i> 平台详细信息</a></li>
                             <li><a href="#!" class="dropdown-item"><i class="feather icon-user"></i> 平台参数配置</a></li>
                             <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> 平台移动设备设置</a></li>
-                            <li><a href="/Admin/Login" class="dropdown-item"><i class="feather icon-lock"></i> 退出登录</a></li>
+                            <li><a href="<%=basePath%>/Admin/Login" class="dropdown-item"><i class="feather icon-lock"></i> 退出登录</a></li>
                         </ul>
                     </div>
                 </div>
@@ -365,15 +371,16 @@
                         <div class="row align-items-center">
                             <div class="col-md-12">
                                 <div class="page-header-title">
-                                    <h5 class="m-b-10">详细资料</h5>
+                                    <h5 class="m-b-10">商品档案</h5>
                                 </div>
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="../../index.html"><i class="feather icon-home"></i></a></li>
-                                    <li class="breadcrumb-item"><a href="#!">企业信息</a></li>
-                                    <li class="breadcrumb-item"><a href="#!">详细资料</a></li>
+                                    <li class="breadcrumb-item"><a href="#!">商品</a></li>
+                                    <li class="breadcrumb-item"><a href="#!">商品档案</a></li>
                                 </ul>
                                 <hr>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -382,141 +389,34 @@
                     <div class="page-wrapper">
                         <!-- [ Main Content ] start -->
                         <div class="row">
-                            <!-- [ sample-page ] start -->
+                            <!-- [ Responsive table ] start -->
                             <div class="col-sm-12">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h5>详细资料卡</h5>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLive">修改密码</button>
-                                        <div class="card-header-right">
-                                            <div class="btn-group card-option">
-                                                <button type="button" class="btn dropdown-toggle btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="feather icon-more-horizontal"></i>
-                                                </button>
-                                                <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> 全屏显示</span><span style="display:none"><i class="feather icon-minimize"></i> 正常显示</span></a></li>
-                                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> 整理折叠</span><span style="display:none"><i class="feather icon-plus"></i> 展开内容</span></a></li>
-                                                    <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> 刷新</a></li>
-                                                    <li class="dropdown-item"><a id="modifyInfo" href="#!"><i class="feather icon-edit"></i> 修改信息</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <h5>商品列表</h5>
                                     </div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group" style="text-align: center;">
-                                                        <img src="http://localhost:8080/admin/img/user/avatar-1.jpg">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="exampleInputEmail1">邮箱地址</label>
-                                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="请输入邮箱地址" value="${UserInfo.email}" disabled="disabled">
-                                                        <small id="emailHelp" class="form-text text-muted">请保证邮箱地址的合法性 e.g.163, qq等</small>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>账号昵称</label>
-                                                        <input type="text" class="form-control" id="exampleInputUsername" placeholder="请输入账号昵称" disabled="disabled" value="${UserInfo.username}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="exampleFormControlSelect2">账号使用者性别</label>
-                                                        <select class="form-control" id="exampleFormControlSelect2" disabled="disabled">
-                                                            <c:if test="${UserInfo.gender == 0}">
-                                                                <option value="0" selected="selected">保密</option>
-                                                                <option value="1">男</option>
-                                                                <option value="2">女</option>
-                                                            </c:if>
-                                                            <c:if test="${UserInfo.gender == 1}">
-                                                                <option value="0">保密</option>
-                                                                <option value="1" selected="selected">男</option>
-                                                                <option value="2">女</option>
-                                                            </c:if>
-                                                            <c:if test="${UserInfo.gender == 2}">
-                                                                <option value="0">保密</option>
-                                                                <option value="1">男</option>
-                                                                <option value="2" selected="selected">女</option>
-                                                            </c:if>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <label>手机号(即为登录账号，唯一且不允许修改)</label>
-                                                        <input type="text" class="form-control" placeholder="不允许修改" disabled="disabled" value="${UserInfo.mobile}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>总登录次数(不允许修改)</label>
-                                                        <input type="text" class="form-control" placeholder="不允许修改" disabled="disabled" value="${UserInfo.loginTotal}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="exampleFormControlSelect1">账号用户角色(不允许修改)</label>
-                                                        <select class="form-control" id="exampleFormControlSelect1" disabled="disabled">
-                                                            <c:if test="${UserInfo.roleId == 10}">
-                                                                <option value="10" selected="selected">超级管理员</option>
-                                                                <option value="1">人事</option>
-                                                                <option value="2">客服</option>
-                                                                <option value="3">财务</option>
-                                                            </c:if>
-                                                            <c:if test="${UserInfo.roleId == 1}">
-                                                                <option value="10">超级管理员</option>
-                                                                <option value="1" selected="selected">人事</option>
-                                                                <option value="2">客服</option>
-                                                                <option value="3">财务</option>
-                                                            </c:if>
-                                                            <c:if test="${UserInfo.roleId == 2}">
-                                                                <option value="10">超级管理员</option>
-                                                                <option value="1">人事</option>
-                                                                <option value="2" selected="selected">客服</option>
-                                                                <option value="3">财务</option>
-                                                            </c:if>
-                                                            <c:if test="${UserInfo.roleId == 3}">
-                                                                <option value="10">超级管理员</option>
-                                                                <option value="1">人事</option>
-                                                                <option value="2">客服</option>
-                                                                <option value="3" selected="selected">财务</option>
-                                                            </c:if>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <button id="infoSumbit" class="ladda-button ladda-button-demo btn btn-primary" data-style="zoom-in" disabled="disabled">提交</button>
-                                        </form>
-                                        <div id="exampleModalLive" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLiveLabel">修改密码</h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputPwd1">旧密码</label>
-                                                                    <input type="password" class="form-control" id="exampleInputPwd1" placeholder="请输入旧密码" value="">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputPwd2">新密码</label>
-                                                                    <input type="password" class="form-control" id="exampleInputPwd2" placeholder="请输入新密码" value="">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label for="exampleInputPwd3">确认新密码</label>
-                                                                    <input type="password" class="form-control" id="exampleInputPwd3" placeholder="请再次输入新密码" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
-                                                        <button id="modifyPwd" type="button" class="btn btn-primary">提交</button>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                    <div class="card-block">
+                                        <div class="table-responsive">
+                                            <table id="responsive-table" class="display table dt-responsive nowrap" style="width:100%">
+                                                <thead>
+                                                <tr>
+                                                    <th>名称</th>
+                                                    <th>库存</th>
+                                                    <th>销量</th>
+                                                    <th>出厂价</th>
+                                                    <th>原价</th>
+                                                    <th>指导价</th>
+                                                    <th>状态</th>
+                                                    <th>访问次数</th>
+                                                    <th>相关操作</th>
+                                                </tr>
+                                                </thead>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- [ sample-page ] end -->
+                            <!-- [ Responsive table ] end -->
                         </div>
                         <!-- [ Main Content ] end -->
                     </div>
@@ -532,167 +432,130 @@
 <script src="<%=basePath%>/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="<%=basePath%>/admin/js/pcoded.min.js"></script>
 <script src="<%=basePath%>/admin/js/menu-setting.min.js"></script>
-<script src="<%=basePath%>/admin/plugins/ladda/js/spin.min.js"></script>
-<script src="<%=basePath%>/admin/plugins/ladda/js/ladda.min.js"></script>
-<script src="<%=basePath%>/admin/plugins/ladda/js/ladda.jquery.min.js"></script>
-<script src="<%=basePath%>/admin/plugins/sweetalert/js/sweetalert.min.js"></script>
-<script type="text/javascript">
+
+<!-- select2 Js -->
+<script src="<%=basePath%>/admin/plugins/select2/js/select2.full.min.js"></script>
+
+<!-- multi-select Js -->
+<script src="<%=basePath%>/admin/plugins/multi-select/js/jquery.quicksearch.js"></script>
+<script src="<%=basePath%>/admin/plugins/multi-select/js/jquery.multi-select.js"></script>
+<!--lightbox Js -->
+<script src="<%=basePath%>/admin/plugins/lightbox2-master/js/lightbox.min.js"></script>
+<!-- datatable Js -->
+<script src="<%=basePath%>/admin/plugins/data-tables/js/datatables.min.js"></script>
+<script>
+
     $(document).ready(function() {
-        $('#modifyInfo').click(function () {
-            $('#exampleInputEmail1').removeAttr("disabled");
-            $('#exampleInputUsername').removeAttr("disabled");
-            $('#exampleFormControlSelect2').removeAttr("disabled");
-            $('#infoSumbit').removeAttr("disabled");
-        });
+        $('#userImage').attr('src', JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].image);
+        $('#userName').html(JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].username);
+        $('#userDetailPage').attr('href', '/Admin/EnterpriseInfo/Details/' +  JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].id);
+        $(document).ready(function() {
+            $('#responsive-table').DataTable({
+                dom: 'lTfg<"html5buttons"B>tpi',
+                buttons: [
+                    {
+                        extend: 'copy',
+                        text: '复制',
+                    },
+                    {extend: 'csv',
+                        text: '下载CSV',
+                        title: '商品档案',
+                    },
+                    {extend: 'excel',
+                        title: '商品档案',
+                        text: '下载Excel'},
+                    {extend: 'pdf',
+                        title: '商品档案',
+                        text: '下载PDF'
+                    },
+                    {extend: 'print',
+                        text: "打印",
+                        customize: function (win){
+                            $(win.document.body).addClass('white-bg');
+                            $(win.document.body).css('font-size', '10px');
 
-        var infoSumbit = $('#infoSumbit').ladda();
-        infoSumbit.click(function(){
-            var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-            var $exampleInputEmail1 = $('#exampleInputEmail1').val();
-            var $exampleInputUsername = $('#exampleInputUsername').val();
-            var $exampleFormControlSelect2 = $('#exampleFormControlSelect2').val();
-            if($exampleInputEmail1 == "" || $exampleInputUsername == ""){
-                swal({
-                    title: "警告!",
-                    text: "输入内容不允许为空!",
-                    icon: "warning",
-                    button: {
-                        text: "确定",
-                    },
-                });
-            }else if(!reg.test($exampleInputEmail1)){
-                swal({
-                    title: "警告!",
-                    text: "输入的邮箱格式不正确!",
-                    icon: "warning",
-                    button: {
-                        text: "确定",
-                    },
-                });
-            }else{
-                $.ajax({
-                    method: "POST",
-                    url: "<%=basePath%>/Admin/ModifyInfo",
-                    dataType: "json",
-                    data: {'id':JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].id, 'email':$exampleInputEmail1, 'username':$exampleInputUsername, 'gender':$exampleFormControlSelect2},
-                    success: function (data) {
-                        if(data.flag != "1"){
-                            swal({
-                                title: "修改失败!",
-                                text: "请重试!",
-                                icon: "error",
-                                button: {
-                                    text: "确定",
-                                },
-                            });
-                        }else{
-                            swal({
-                                title: "修改成功!",
-                                text: "进行刷新页面，正在为您跳转登录!",
-                                icon: "success",
-                                button: {
-                                    text: "确定",
-                                },
-                            });
-                            window.location.href = "<%=basePath%>/Admin/Login";
-                        }
-                        infoSumbit.ladda('stop');
-                    },
-                    beforeSend: function () {
-                        infoSumbit.ladda( 'start' );
-                    },
-                    error: function () {
-                        swal({
-                            title: "出现错误!",
-                            text: "网络参数出现错误!",
-                            icon: "error",
-                            button: {
-                                text: "确定",
-                            },
-                        });
-                    }
-                });
-            }
-        });
-
-        var $modifyPwd = $('#modifyPwd').ladda();
-        $modifyPwd.click(function () {
-            var $oldPassword = $('#exampleInputPwd1').val();
-            var $newPassword = $('#exampleInputPwd2').val();
-            var $newPassword1 = $('#exampleInputPwd3').val();
-            if($oldPassword == "" || $newPassword == "" || $newPassword1 == ""){
-                swal({
-                    title: "警告!",
-                    text: "密码不能为空!",
-                    icon: "warning",
-                    button: {
-                        text: "确定",
-                    },
-                });
-            }else if($oldPassword < 6 || $newPassword < 6 || $newPassword1 < 6){
-                swal({
-                    title: "警告!",
-                    text: "密码不能小于6位!",
-                    icon: "warning",
-                    button: {
-                        text: "确定",
-                    },
-                });
-            }else if($newPassword != $newPassword1){
-                swal({
-                    title: "警告!",
-                    text: "两次新密码输入不相等!",
-                    icon: "warning",
-                    button: {
-                        text: "确定",
-                    },
-                });
-            }else{
-                $.ajax({
-                    method: "POST",
-                    url: "<%=basePath%>/Admin/ModifyPwd",
-                    dataType: "json",
-                    data: {'id':JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].id,'oldPwd':$oldPassword, 'newPwd':$newPassword},
-                    success: function (data) {
-                        $modifyPwd.ladda("stop");
-                        if(data.flag != "1"){
-                            swal({
-                                title: "修改失败!",
-                                text: "密码输入错误!",
-                                icon: "error",
-                                button: {
-                                    text: "确定",
-                                },
-                            });
-                        }else{
-                            swal({
-                                title: "修改成功!",
-                                text: "请牢记新的密码，正在为您跳转登录!",
-                                icon: "success",
-                                button: {
-                                    text: "确定",
-                                },
-                            });
-                            window.location.href = "<%=basePath%>/Admin/Login";
+                            $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
                         }
                     },
-                    beforeSend: function () {
-                        $modifyPwd.ladda("start");
+                ],
+                ajax: {
+                    url: "<%=basePath%>/Admin/Commodity/AllGoods",
+                    method: "POST",
+                    dataType: "json",
+                    data: {},
+                },
+                language : {
+                    processing : "载入中",//处理页面数据的时候的显示
+                    paginate : {//分页的样式文本内容。
+                        previous : "上一页",
+                        next : "下一页",
+                        first : "第一页",
+                        last : "最后一页"
                     },
-                    error: function () {
-                        swal({
-                            title: "出现错误!",
-                            text: "网络参数出现错误!",
-                            icon: "error",
-                            button: {
-                                text: "确定",
-                            },
-                        });
-                    }
-                });
-            }
+                    search: "搜索",
+                    zeroRecords : "没有内容",//table tbody内容为空时，tbody的内容。
+                    //下面三者构成了总体的左下角的内容。
+                    info : "第 _PAGE_/_PAGES_页 共 _TOTAL_条记录",//左下角的信息显示，大写的词为关键字。
+                    infoEmpty : "第 _PAGE_/_PAGES_页 共 _TOTAL_条记录",//筛选为空时左下角的显示。
+                    infoFiltered : "",//筛选之后的左下角筛选提示(另一个是分页信息显示，在上面的info中已经设置，所以可以不显示)，
+                },
+                columns: [
+                    {
+                        "data": "title",
+                        "class": "text-center",
+                    },
+                    {
+                        "data": "inventory",
+                        "class" : "text-center",
+                    },
+                    {
+                        "data": "salesCount",
+                        "class" : "text-center",
+                    },
+                    {
+                        "data": "factoryPrice",
+                        "class" : "text-center",
+                    },
+                    {
+                        "data": "originalPrice",
+                        "class" : "text-center",
+                    },
+                    {
+                        "data": "guidePrice",
+                        "class" : "text-center",
+                    },
+                    {
+                        "data" : "isShelves",
+                        "class" : "text-center",
+                        "render" : function(data, type, row) {
+                            if(data==0){
+                                return "已下架";
+                            }else if(data==1){
+                                return "上架中";
+                            }
+                            return "";
+                        },
+                    },
+                    {
+                        "data" : "accessCount",
+                        "class" : "text-center",
+                    },
+                    {
+                        "data" : "id",
+                        "class" : "text-center",
+                        "render" : function(data, type, row) {
+                            return '<span class="btn btn-primary btn-xs ml-5 js-edit" data-id="'+data+'">编辑</span> <span class="btn btn-danger btn-xs ml-5 js-delete" data-id="'+data+'">删除</span><span class="btn btn-danger btn-xs ml-5 js-delete" data-id="'+data+'">详细资料</span>';
+                        },
+                    },
+                ],
+            });
         });
+
     });
 </script>
+
 </body>
 </html>
+

@@ -35,15 +35,15 @@
     <meta name="author" content="DBC" />
 
     <!-- Favicon icon -->
-    <link rel="icon" href="../../admin/img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<%=basePath%>/admin/img/favicon.ico" type="image/x-icon">
     <!-- fontawesome icon -->
-    <link rel="stylesheet" href="../../admin/fonts/fontawesome/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/fonts/fontawesome/css/fontawesome-all.min.css">
     <!-- animation css -->
-    <link rel="stylesheet" href="../../admin/plugins/animation/css/animate.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/animation/css/animate.min.css">
     <!-- notification css -->
-    <link rel="stylesheet" href="../../admin/plugins/notification/css/notification.min.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/plugins/notification/css/notification.min.css">
     <!-- vendor css -->
-    <link rel="stylesheet" href="../../admin/css/style.css">
+    <link rel="stylesheet" href="<%=basePath%>/admin/css/style.css">
 
 </head>
 
@@ -77,7 +77,7 @@
                     <a href="#!" class="nav-link"><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">企业信息</span></a>
                     <ul class="pcoded-submenu">
                         <li class="active"><a href="#" class="">经营概况</a></li>
-                        <li class=""><a id="userDetail" href="" class="">详细资料</a></li>
+                        <li class=""><a id="userDetailPage" href="" class="">详细资料</a></li>
                         <li class=""><a href="pages/enterprise/control.html" class="">平台流量监控</a></li>
                     </ul>
                 </li>
@@ -86,15 +86,15 @@
                     <ul class="pcoded-submenu">
                         <li class="pcoded-hasmenu"><a href="#!" class="">商品智配</a>
                             <ul class="pcoded-submenu">
-                                <li class=""><a href="pages/commodity/adaptation/classify.html" class="" target="_blank">场景分类</a></li>
-                                <li class=""><a href="pages/commodity/adaptation/scene.html" class="" target="_blank">场景图上传</a></li>
-                                <li class=""><a href="pages/commodity/adaptation/commodity.html" class="" target="_blank">商品图上传</a></li>
+                                <li class=""><a href="pages/commodity/adaptation/classify.html" class="">场景分类</a></li>
+                                <li class=""><a href="pages/commodity/adaptation/scene.html" class="">场景图上传</a></li>
+                                <li class=""><a href="pages/commodity/adaptation/commodity.html" class="">商品图上传</a></li>
                             </ul>
                         </li>
-                        <li class=""><a href="pages/commodity/index.html" class="" target="_blank">商品档案</a></li>
-                        <li class=""><a href="pages/commodity/classify.html" class="" target="_blank">商品分类</a></li>
-                        <li class=""><a href="pages/commodity/photo.html" class="" target="_blank">商品图片</a></li>
-                        <li class=""><a href="pages/commodity/video.html" class="" target="_blank">商品小视频</a></li>
+                        <li class=""><a href="<%=basePath%>/Admin/Commodity/Record" class="">商品档案</a></li>
+                        <li class=""><a href="pages/commodity/classify.html" class="">商品分类</a></li>
+                        <li class=""><a href="pages/commodity/photo.html" class="">商品图片</a></li>
+                        <li class=""><a href="pages/commodity/video.html" class="">商品小视频</a></li>
                     </ul>
                 </li>
                 <li data-username="widget Statistic Data Table User card Chart" class="nav-item pcoded-hasmenu">
@@ -306,7 +306,7 @@
                         <div class="pro-head">
                             <img id="userImage" src="" class="img-radius" alt="用户头像">
                             <span id="userName"></span>
-                            <a href="/Admin/Login" class="dud-logout" title="退出">
+                            <a href="<%=basePath%>/Admin/Login" class="dud-logout" title="退出">
                                 <i class="feather icon-log-out"></i>
                             </a>
                         </div>
@@ -314,7 +314,7 @@
                             <li><a href="#!" class="dropdown-item"><i class="feather icon-settings"></i> 平台详细信息</a></li>
                             <li><a href="#!" class="dropdown-item"><i class="feather icon-user"></i> 平台参数配置</a></li>
                             <li><a href="message.html" class="dropdown-item"><i class="feather icon-mail"></i> 平台移动设备设置</a></li>
-                            <li><a href="/Admin/Login" class="dropdown-item"><i class="feather icon-lock"></i> 退出登录</a></li>
+                            <li><a href="<%=basePath%>/Admin/Login" class="dropdown-item"><i class="feather icon-lock"></i> 退出登录</a></li>
                         </ul>
                     </div>
                 </div>
@@ -433,8 +433,8 @@
                                                     <i class="feather icon-more-horizontal"></i>
                                                 </button>
                                                 <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> 全屏显示</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> 整理折叠</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> 全屏显示</span><span style="display:none"><i class="feather icon-minimize"></i> 正常显示</span></a></li>
+                                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> 整理折叠</span><span style="display:none"><i class="feather icon-plus"></i> 展开内容</span></a></li>
                                                     <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> 刷新</a></li>
                                                 </ul>
                                             </div>
@@ -548,8 +548,8 @@
                                                     <i class="feather icon-more-horizontal"></i>
                                                 </button>
                                                 <ul class="list-unstyled card-option dropdown-menu dropdown-menu-right">
-                                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> 全屏显示</span><span style="display:none"><i class="feather icon-minimize"></i> Restore</span></a></li>
-                                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> 整理折叠</span><span style="display:none"><i class="feather icon-plus"></i> expand</span></a></li>
+                                                    <li class="dropdown-item full-card"><a href="#!"><span><i class="feather icon-maximize"></i> 全屏显示</span><span style="display:none"><i class="feather icon-minimize"></i> 正常显示</span></a></li>
+                                                    <li class="dropdown-item minimize-card"><a href="#!"><span><i class="feather icon-minus"></i> 整理折叠</span><span style="display:none"><i class="feather icon-plus"></i> 展开内容</span></a></li>
                                                     <li class="dropdown-item reload-card"><a href="#!"><i class="feather icon-refresh-cw"></i> 刷新</a></li>
                                                 </ul>
 
@@ -645,31 +645,31 @@
 <!-- Warning Section Ends -->
 
 <!-- Required Js -->
-<script src="../../admin/js/vendor-all.min.js"></script>
-<script src="../../admin/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="../../admin/js/menu-setting.min.js"></script>
-<script src="../../admin/js/pcoded.min.js"></script>
+<script src="<%=basePath%>/admin/js/vendor-all.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="<%=basePath%>/admin/js/menu-setting.min.js"></script>
+<script src="<%=basePath%>/admin/js/pcoded.min.js"></script>
 <!-- amchart js -->
-<script src="../../admin/plugins/amchart/js/amcharts.js"></script>
-<script src="../../admin/plugins/amchart/js/gauge.js"></script>
-<script src="../../admin/plugins/amchart/js/serial.js"></script>
-<script src="../../admin/plugins/amchart/js/light.js"></script>
-<script src="../../admin/plugins/amchart/js/pie.min.js"></script>
-<script src="../../admin/plugins/amchart/js/ammap.min.js"></script>
-<script src="../../admin/plugins/amchart/js/usaLow.js"></script>
-<script src="../../admin/plugins/amchart/js/radar.js"></script>
-<script src="../../admin/plugins/amchart/js/worldLow.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/amcharts.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/gauge.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/serial.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/light.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/pie.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/ammap.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/usaLow.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/radar.js"></script>
+<script src="<%=basePath%>/admin/plugins/amchart/js/worldLow.js"></script>
 <!-- notification Js -->
-<script src="../../admin/plugins/notification/js/bootstrap-growl.min.js"></script>
+<script src="<%=basePath%>/admin/plugins/notification/js/bootstrap-growl.min.js"></script>
 
 <!-- dashboard-custom js -->
-<script src="../../admin/js/pages/dashboard-custom.js"></script>
-<script src="../../admin/js/pagesJs/index.js"></script>
+<script src="<%=basePath%>/admin/js/pages/dashboard-custom.js"></script>
+<script src="<%=basePath%>/admin/js/pagesJs/index.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#userImage').attr('src', JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].image);
         $('#userName').html(JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].username);
-        $('#userDetail').attr('href', '/Admin/EnterpriseInfo/Details/' +  JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].id);
+        $('#userDetailPage').attr('href', '/Admin/EnterpriseInfo/Details/' +  JSON.parse(sessionStorage.getItem("enterpriseInfo")).elementData[0].id);
         floatchart()
         $(window).on('resize', function() {
             floatchart();

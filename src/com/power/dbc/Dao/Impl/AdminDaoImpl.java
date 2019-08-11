@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
 
 import java.util.List;
 
@@ -74,7 +75,7 @@ public class AdminDaoImpl implements AdminDao {
             if(lAdminEntity.getUsername() != null)
                 lAdminEntity1.setUsername(lAdminEntity.getUsername());
             if(lAdminEntity.getPassword() != null)
-                lAdminEntity1.setPassword(lAdminEntity.getPassword());
+                lAdminEntity1.setPassword(DigestUtils.md5DigestAsHex(lAdminEntity.getPassword().getBytes()));
             if(lAdminEntity.getLoginTotal() != 0)
                 lAdminEntity1.setLoginTotal(lAdminEntity.getLoginTotal());
             if(lAdminEntity.getLoginTime() != 0)
@@ -91,6 +92,8 @@ public class AdminDaoImpl implements AdminDao {
                 lAdminEntity1.setUpdTime(lAdminEntity.getUpdTime());
             if(lAdminEntity.getImage() != null)
                 lAdminEntity1.setImage(lAdminEntity.getImage());
+            if(lAdminEntity.getEmail() != null)
+                lAdminEntity1.setEmail(lAdminEntity.getEmail());
 
             session.update(lAdminEntity1);
             transaction.commit();

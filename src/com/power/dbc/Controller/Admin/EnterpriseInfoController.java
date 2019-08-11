@@ -1,5 +1,6 @@
 package com.power.dbc.Controller.Admin;
 
+import com.power.dbc.Model.LAdminEntity;
 import com.power.dbc.Service.AdminService;
 import com.power.dbc.Service.GoodsService;
 import com.power.dbc.Service.OrderService;
@@ -7,11 +8,19 @@ import com.power.dbc.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @program: LiXingShopSystem

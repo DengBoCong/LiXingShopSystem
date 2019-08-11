@@ -7,7 +7,7 @@ import java.util.Objects;
  * @program: LiXingShopSystem
  * @description:
  * @author: DBC
- * @create: 2019-08-09 20:42
+ * @create: 2019-08-10 17:25
  **/
 @Entity
 @Table(name = "l_admin", schema = "lixing", catalog = "")
@@ -23,6 +23,7 @@ public class LAdminEntity {
     private int addTime;
     private int updTime;
     private String image;
+    private String email;
 
     @Basic
     @Column(name = "username", nullable = false, length = 50)
@@ -134,6 +135,16 @@ public class LAdminEntity {
         this.image = image;
     }
 
+    @Basic
+    @Column(name = "email", nullable = false, length = 30)
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -149,12 +160,13 @@ public class LAdminEntity {
                 Objects.equals(username, that.username) &&
                 Objects.equals(password, that.password) &&
                 Objects.equals(mobile, that.mobile) &&
-                Objects.equals(image, that.image);
+                Objects.equals(image, that.image) &&
+                Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(username, password, id, loginTotal, loginTime, roleId, gender, mobile, addTime, updTime, image);
+        return Objects.hash(username, password, id, loginTotal, loginTime, roleId, gender, mobile, addTime, updTime, image, email);
     }
 }

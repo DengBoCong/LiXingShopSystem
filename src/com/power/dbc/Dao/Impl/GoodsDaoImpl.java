@@ -172,7 +172,7 @@ public class GoodsDaoImpl implements GoodsDao {
     public List<LGoodsEntity> list() {
         Session session = sessionFactory.openSession();
         List<LGoodsEntity> list = session
-                .createQuery("from LGoodsEntity ").list();
+                .createQuery("from LGoodsEntity order by title asc ").list();
         session.close();
         return list;
     }
